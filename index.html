@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitTrack - Fitness Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Fit<span>Track</span></div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#workout">Workout</a>
+      <a href="#goals">Goals</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="tag">YOUR DAILY FITNESS COMPANION</p>
+        <h1>Track your progress.<br><span>Build a healthier you.</span></h1>
+        <p class="hero-text">Track steps, water, workouts and daily calories in one simple dashboard.</p>
+        <a class="btn" href="#dashboard">Start Tracking</a>
+      </div>
+      <div class="hero-card">
+        <div class="circle"><strong id="heroSteps">0</strong><small>steps</small></div>
+        <p>Today's Activity</p>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section">
+      <div class="section-title">
+        <div>
+          <p class="tag">OVERVIEW</p>
+          <h2>Today's Dashboard</h2>
+        </div>
+        <button class="reset-btn" onclick="resetData()">Reset Today</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="icon">👟</div>
+          <h3 id="steps">0</h3><p>Steps</p>
+          <div class="progress"><i id="stepsBar"></i></div>
+          <small>Goal: 10,000</small>
+        </div>
+        <div class="stat-card">
+          <div class="icon">💧</div>
+          <h3 id="water">0</h3><p>Glasses of Water</p>
+          <div class="progress"><i id="waterBar"></i></div>
+          <small>Goal: 8 glasses</small>
+        </div>
+        <div class="stat-card">
+          <div class="icon">🔥</div>
+          <h3 id="calories">0</h3><p>Calories Burned</p>
+          <div class="progress"><i id="caloriesBar"></i></div>
+          <small>Goal: 500 kcal</small>
+        </div>
+        <div class="stat-card">
+          <div class="icon">⏱️</div>
+          <h3 id="minutes">0</h3><p>Workout Minutes</p>
+          <div class="progress"><i id="minutesBar"></i></div>
+          <small>Goal: 60 min</small>
+        </div>
+      </div>
+
+      <div class="quick-grid">
+        <div class="panel">
+          <h3>Quick Update</h3>
+          <p class="muted">Add today's activity</p>
+          <div class="input-row">
+            <label>Steps <input id="stepInput" type="number" min="0" placeholder="e.g. 2500"></label>
+            <button onclick="addSteps()">Add</button>
+          </div>
+          <div class="input-row">
+            <label>Water <input id="waterInput" type="number" min="0" placeholder="glasses"></label>
+            <button onclick="addWater()">Add</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Daily Motivation</h3>
+          <p id="quote">Small steps every day lead to big results.</p>
+          <button class="outline-btn" onclick="newQuote()">New Motivation</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="workout" class="section alt">
+      <div class="section-title">
+        <div>
+          <p class="tag">ACTIVITY</p>
+          <h2>Workout Tracker</h2>
+        </div>
+      </div>
+      <div class="workout-grid">
+        <button class="workout" onclick="addWorkout('Walking', 20, 90)">
+          <span>🚶</span><b>Walking</b><small>20 min • ~90 kcal</small>
+        </button>
+        <button class="workout" onclick="addWorkout('Running', 30, 280)">
+          <span>🏃</span><b>Running</b><small>30 min • ~280 kcal</small>
+        </button>
+        <button class="workout" onclick="addWorkout('Cycling', 30, 220)">
+          <span>🚴</span><b>Cycling</b><small>30 min • ~220 kcal</small>
+        </button>
+        <button class="workout" onclick="addWorkout('Yoga', 25, 80)">
+          <span>🧘</span><b>Yoga</b><small>25 min • ~80 kcal</small>
+        </button>
+      </div>
+      <p id="workoutMessage" class="success"></p>
+    </section>
+
+    <section id="goals" class="section">
+      <p class="tag">YOUR TARGETS</p>
+      <h2>Daily Goals</h2>
+      <div class="goal-list">
+        <div><span>10,000 Steps</span><strong id="goalSteps">0%</strong></div>
+        <div><span>8 Glasses Water</span><strong id="goalWater">0%</strong></div>
+        <div><span>500 Calories</span><strong id="goalCalories">0%</strong></div>
+        <div><span>60 Workout Minutes</span><strong id="goalMinutes">0%</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 FitTrack • Built with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
